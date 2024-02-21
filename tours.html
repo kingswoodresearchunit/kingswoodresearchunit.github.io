@@ -93,37 +93,46 @@
                     </div>
                     <div class="countdown__timer" id="countdown-time">
                         <h2>Registrations are now open</h2>
-                        <style>
-                            .countdown__timer h2{
-                                color: whitesmoke;
-                                font-size: 35px;
-                                text-transform: uppercase;
-                                margin-top: 80px;
-                                margin-bottom: 60px;
-                                text-shadow: 2px 2px 20px black;
-                            }
-                        </style>
-                        <!--<div class="countdown__item">
-                            <span>40</span>
-                            <p>days</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>45</span>
-                            <p>hours</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>18</span>
-                            <p>minutes</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>09</span>
-                            <p>seconds</p>
-                        </div>-->
                     </div>
                     <div class="buy__tickets">
                         <a href="https://forms.gle/vnj3zymakCMxwTNt8" class="reg-btn" target="_blank">Register Now</a><br><br><br><br>
                     </div>
+                    <div class="buy__tickets">
+                        <a href="https://drive.google.com/file/d/1gGYUnrZoAxa4OswCXyXSqWg-5fUUGTv7/view?usp=drive_link" class="reg-btn" target="_blank">Rules and Regulations</a>
+                    </div>
+                    <div id="countdown"></div>
+                    <script>
+                        const countDownDate = new Date("February 27, 2024 00:00:00").getTime();
+                        const registrationForm = document.getElementById('registrationForm');
+                
+                        const x = setInterval(function() {
+                            const now = new Date().getTime();
+                            const distance = countDownDate - now;
+                    
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("countdown").innerHTML = "TIME EXCEEDED";
+                            disableForm();
+                        }
+                        else {
+                            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                            document.getElementById("countdown").innerHTML = days + "D " + hours + "H " + minutes + "M " + seconds + "S ";
+                        }
+                    }, 1000);
+                    </script>
                     <style>
+                        .countdown__timer h2{
+                            color: whitesmoke;
+                            font-size: 35px;
+                            text-transform: uppercase;
+                            margin-top: 80px;
+                            margin-bottom: 60px;
+                            text-shadow: 2px 2px 20px black;
+                            }
                         .reg-btn{
                             background: transparent;
                             border: 2px solid #fff;
@@ -134,10 +143,17 @@
                             padding: 14px 25px;
                             border-radius: 10px;
                         }
+                        #countdown {
+                            font-size: 40px;
+                            text-align: center;
+                            margin-top: 25px;
+                            padding-bottom: 20px;
+                            margin-top: 60px;
+                            padding-top: 20px;
+                            color: rgb(194, 194, 194);
+                            position: relative;
+                        }
                     </style>
-                    <div class="buy__tickets">
-                        <a href="https://drive.google.com/file/d/1gGYUnrZoAxa4OswCXyXSqWg-5fUUGTv7/view?usp=drive_link" class="reg-btn" target="_blank">Rules and Regulations</a>
-                    </div>
                 </div>
             </div>
         </div>
